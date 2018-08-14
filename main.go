@@ -228,6 +228,9 @@ func main() {
     }
 
     GatherTargets(sess)
+    if len(sess.Targets) == 0 {
+      sess.Out.Fatal("No valid targets provided\n")
+    }
     GatherRepositories(sess)
     AnalyzeRepositories(sess)
     sess.Finish()
